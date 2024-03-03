@@ -1,0 +1,21 @@
+.icon__delete {
+  color: rgb(189, 15, 15);
+  cursor: pointer;
+}
+
+.icon__edit {
+  color: rgb(38, 126, 50);
+  cursor: pointer;
+}
+
+.icon__home {
+  padding: 20px;
+  color: #1976d2;
+  font-size: 50px !important;
+  text-align: center !important;
+  cursor: pointer;
+}
+
+.font__bold{
+  font-weight: bold !important;
+}
