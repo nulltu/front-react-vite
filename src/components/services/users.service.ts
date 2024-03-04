@@ -1,10 +1,12 @@
 /* eslint-disable import/prefer-default-export */
 import axios from 'axios';
-import { BASE_URL, IFilter, TOKEN } from '../../utils/constants';
+import { BASE_URL, IFilter } from '../../utils/constants';
 
 interface Params {
   [key: string]: any;
 }
+
+export const TOKEN = localStorage.getItem('token');
 
 const axiosInstance = axios.create({
   baseURL: BASE_URL,
