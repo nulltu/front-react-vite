@@ -2,6 +2,7 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import {
   Button,
+  Grid,
   Paper,
   Table,
   TableBody,
@@ -93,36 +94,45 @@ export default function TableUsers() {
   return (
     <>
       <HomeIcon className="icon__home" onClick={navigateToLayout} />
-      <Box sx={{ paddingLeft: 12, paddingRight: 12 }}>
-        <Box
-          component="form"
-          onSubmit={handleFilter}
-          sx={{
-            '& > :not(style)': { m: 1, width: '45ch' },
-            display: 'flex',
-            textAlign: 'center',
-            justifyContent: 'center',
-            alignItems: 'center',
-            marginBottom: '20px',
-          }}
-        >
-          <TextField
-            label="Nombre del empleado"
-            value={filterNombre}
-            onChange={(e) => setFilterNombre(e.target.value)}
-            variant="outlined"
-          />
-          <TextField
-            label="Empresa"
-            value={filterEmpresa}
-            onChange={(e) => setFilterEmpresa(e.target.value)}
-            variant="outlined"
-          />
-          <Button type="submit" variant="contained" disabled={!isValidateForm()} startIcon={<Search />}>
-            Search
-          </Button>
-        </Box>
-        <TableContainer component={Paper}>
+      <Box sx={{ paddingLeft: 5, paddingRight: 5 }}>
+        <form noValidate autoComplete="off" onSubmit={handleFilter}>
+          <Box
+            display="flex"
+            flexDirection={{ xs: 'column', sm: 'row' }}
+            justifyContent="center"
+            alignItems="center"
+            p={2}
+          >
+            <TextField
+              required
+              variant="outlined"
+              fullWidth
+              sx={{
+                margin: { xs: '0 0 5px 0', sm: '0 10px 0 0' },
+              }}
+              label="Nombre del empleado"
+              value={filterNombre}
+              onChange={(e) => setFilterNombre(e.target.value)}
+            />
+            <TextField
+              required
+              label="Empresa"
+              value={filterEmpresa}
+              onChange={(e) => setFilterEmpresa(e.target.value)}
+              variant="outlined"
+              fullWidth
+              sx={{
+                margin: { xs: '5px 0 0 0', sm: '0 0 0 10px' },
+              }}
+            />
+            <Box mt={{ xs: 2, sm: 0 }} ml={{ xs: 0, sm: 2 }}>
+              <Button type="submit" variant="contained" disabled={!isValidateForm()} startIcon={<Search />}>
+                Search
+              </Button>
+            </Box>
+          </Box>
+        </form>
+        <TableContainer component={Paper} style={{ marginTop: '20px' }}>
           <Table aria-label="simple table">
             <TableHead>
               <TableRow>
